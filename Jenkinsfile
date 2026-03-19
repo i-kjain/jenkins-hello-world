@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        jdk 'java21' // This matches the name you gave in Tools!
+        jdk 'java21'
     }
     stages {
         stage('Checkout') {
@@ -11,19 +11,20 @@ pipeline {
         }
         stage('Compile') {
             steps {
+                // This compiles your Java file
                 sh 'javac HelloWorld.java'
             }
         }
-        stage('Run & Test') {
+        stage('Run') {
             steps {
+                // This runs the compiled class
                 sh 'java HelloWorld'
             }
         }
     }
     post {
         success {
-            echo 'Assignment Complete: The code compiled and ran 
-successfully!'
+            echo 'Assignment Complete: The code compiled and ran successfully!'
         }
     }
 }
