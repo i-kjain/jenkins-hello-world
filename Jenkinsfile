@@ -3,11 +3,11 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/i-kjain/jenkins-hello-world.git'
-            }
-        }
+        // stage('Clone Code') {
+        //     steps {
+        //         git 'https://github.com/i-kjain/jenkins-hello-world.git'
+        //     }
+        // }
 
         stage('Build') {
             steps {
