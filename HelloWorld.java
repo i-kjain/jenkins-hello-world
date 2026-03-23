@@ -1,1 +1,9 @@
-public class HelloWorld { public static void main(String[] args) { System.out.println("Hello, Jenkins CI/CD!"); } }
+public class HelloWorld {
+    public static String greet() {
+        return "Hello, Jenkins!";
+    }
+
+    public static void main(String[] args) {
+        System.out.println(greet());
+    }
+}
