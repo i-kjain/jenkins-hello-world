@@ -1,30 +1,65 @@
 pipeline {
     agent any
-    tools {
-        jdk 'java21'
-    }
+
     stages {
-        stage('Checkout') {
+
+        stage('Clone Code') {
             steps {
-                echo 'Pulling code from GitHub...'
+                git 'https://github.com/your-username/hello-jenkins.git'
             }
         }
-        stage('Compile') {
+
+        stage('Build') {
             steps {
-                // This compiles your Java file
-                sh 'javac HelloWorld.java'
+                sh 'javac HelloWorld.java TestHello.java'
             }
         }
-        stage('Run') {
+
+        stage('Test') {
             steps {
-                // This runs the compiled class
+                sh 'java TestHello'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
                 sh 'java HelloWorld'
             }
         }
     }
-    post {
-        success {
-            echo 'Assignment Complete: The code compiled and ran successfully!'
-        }
-    }
 }
+
+
+
+
+
+// pipeline {
+//     agent any
+//     tools {
+//         jdk 'java21'
+//     }
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 echo 'Pulling code from GitHub...'
+//             }
+//         }
+//         stage('Compile') {
+//             steps {
+//                 // This compiles your Java file
+//                 sh 'javac HelloWorld.java'
+//             }
+//         }
+//         stage('Run') {
+//             steps {
+//                 // This runs the compiled class
+//                 sh 'java HelloWorld'
+//             }
+//         }
+//     }
+//     post {
+//         success {
+//             echo 'Assignment Complete: The code compiled and ran successfully!'
+//         }
+//     }
+// }
